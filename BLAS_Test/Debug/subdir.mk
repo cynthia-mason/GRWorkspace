@@ -3,6 +3,20 @@
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
+O_SRCS += \
+../blas_malloc.o \
+../blas_sparse_L1_double.o \
+../blas_sparse_L23_double.o \
+../blas_sparse_handle.o \
+../csr_double.o \
+../microblas_double.o \
+../spblasi_matrix.o \
+../spblasi_matrix_double.o \
+../spblasi_matrix_prop.o \
+../spblasi_table.o \
+../spvec_double.o \
+../table.o 
+
 C_SRCS += \
 ../Cexample.c \
 ../blas_malloc.c \

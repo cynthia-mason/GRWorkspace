@@ -1,31 +1,10 @@
-16:08:15 **** Incremental Build of configuration Debug for project GRScratch ****
+14:49:53 **** Incremental Build of configuration Debug for project GRScratch ****
 make all 
-Building file: ../testRun_Function_PCG_WoodScratch.c
-Invoking: Cygwin C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testRun_Function_PCG_WoodScratch.d" -MT"testRun_Function_PCG_WoodScratch.d" -o "testRun_Function_PCG_WoodScratch.o" "../testRun_Function_PCG_WoodScratch.c"
-../testRun_Function_PCG_WoodScratch.c: In function 'main':
-../testRun_Function_PCG_WoodScratch.c:26:3: warning: implicit declaration of function 'Function_PCG_WoodScratch' [-Wimplicit-function-declaration]
-   Function_PCG_WoodScratch(numRowA, numColA, numNZA, A_val, A_indx, A_jndx, b, c, gamma, x, NumVar, IPMit, CondNum, PCGit);
-   ^
-../testRun_Function_PCG_WoodScratch.c:26:27: warning: 'NumVar' is used uninitialized in this function [-Wuninitialized]
-   Function_PCG_WoodScratch(numRowA, numColA, numNZA, A_val, A_indx, A_jndx, b, c, gamma, x, NumVar, IPMit, CondNum, PCGit);
-                           ^
-../testRun_Function_PCG_WoodScratch.c:26:27: warning: 'IPMit' is used uninitialized in this function [-Wuninitialized]
-../testRun_Function_PCG_WoodScratch.c:26:27: warning: 'CondNum' is used uninitialized in this function [-Wuninitialized]
-../testRun_Function_PCG_WoodScratch.c:26:27: warning: 'PCGit' is used uninitialized in this function [-Wuninitialized]
-Finished building: ../testRun_Function_PCG_WoodScratch.c
- 
 Building target: GRScratch.exe
 Invoking: Cygwin C Linker
-gcc  -o "GRScratch.exe"  ./Function_PCG_WoodScratch.o ./testRun_Function_PCG_WoodScratch.o   
-./Function_PCG_WoodScratch.o: In function `Function_PCG_WoodScratch':
-/cygdrive/c/Users/cmason01/Documents/GitHub/GRWorkspace/GRScratch/Debug/../Function_PCG_WoodScratch.c:13: undefined reference to `BLAS_duscr_begin'
-/cygdrive/c/Users/cmason01/Documents/GitHub/GRWorkspace/GRScratch/Debug/../Function_PCG_WoodScratch.c:13:(.text+0x1f): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `BLAS_duscr_begin'
-/cygdrive/c/Users/cmason01/Documents/GitHub/GRWorkspace/GRScratch/Debug/../Function_PCG_WoodScratch.c:17: undefined reference to `BLAS_duscr_insert_entry'
-/cygdrive/c/Users/cmason01/Documents/GitHub/GRWorkspace/GRScratch/Debug/../Function_PCG_WoodScratch.c:17:(.text+0x88): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `BLAS_duscr_insert_entry'
-makefile:29: recipe for target 'GRScratch.exe' failed
-collect2: error: ld returned 1 exit status
-make: *** [GRScratch.exe] Error 1
+gcc  -o "GRScratch.exe"  ./Function_PCG_WoodScratch.o ./blas_malloc.o ./blas_sparse_L1_double.o ./blas_sparse_L23_double.o ./blas_sparse_handle.o ./csr_double.o ./microblas_double.o ./spblasi_matrix.o ./spblasi_matrix_double.o ./spblasi_matrix_prop.o ./spblasi_table.o ./spvec_double.o ./table.o ./testRun_Function_PCG_WoodScratch.o   
+Finished building target: GRScratch.exe
+ 
 
-16:08:15 Build Finished (took 319ms)
+14:49:53 Build Finished (took 271ms)
 
