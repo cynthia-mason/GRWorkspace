@@ -1,0 +1,18 @@
+#include "math.h"
+#include "blas_sparse.h"
+
+void Function_PCG_WoodScratch(const int numRowA, const int numColA,
+		const int numNZA, double[] A_val[29], int[] A_indx, int[] A_jndx,
+		double[] b[17], double[] c[10], double gamma, double[] x, int *NumVar,
+		int *IPMit, double *CondNum, int *PCGit){
+	blas_sparse_matrix A;
+	int i;
+
+	/*  Step 1: Create Spares BLAS Handle  */
+	A=BLAS_duscr_begin(numRowA,numColA);
+
+	/*  Step 2: Insert entries  */
+	for (i=0;i<numNZA;i++)
+		BLAS_duscr_insert_entry(A,A_val[i],A_indx[i],A_jndx[i]);
+
+}

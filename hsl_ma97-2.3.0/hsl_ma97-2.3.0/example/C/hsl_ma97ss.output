@@ -1,0 +1,7 @@
+
+ Warning from ma97_analyse. Warning flag =   4
+ one or more diagonal entries is missing
+
+The computed solution is:
+ 1.000000 2.000000 2.000000 1.000000 1.000000
+Pivot order: 2 3 1 4 0

@@ -1,0 +1,6 @@
+#include "math.h"
+
+void Function_PCG_Wood_clean(int[] A[170], int[] b[17], double[] c[10], double b_gamma, double[] x[10], int *NumVar, int *IPMit, double *CondNum, int *PCGit)
+{
+
+}

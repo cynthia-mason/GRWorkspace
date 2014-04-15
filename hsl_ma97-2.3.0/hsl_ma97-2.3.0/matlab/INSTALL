@@ -1,0 +1,145 @@
+-----------------------------------------------------------------
+Contents
+-----------------------------------------------------------------
+
+(1) Requirements
+(2) Directory structure
+(3) Installation of hsl_ma97 and its Matlab interface
+(4) Instructions for best performance
+
+-----------------------------------------------------------------
+1. Requirements
+-----------------------------------------------------------------
+
+These instructions are for linux-based systems (both 32-bit and 64-bit machines
+are supported).
+
+Requirements:
+ - A recent version of Matlab
+   (tested against 2011a, 2011b, 2012a, 2012b, 2013a, 2013b).
+ - The supported C and Fortran compilers for your version of Matlab
+   (g95 compiler for versions prior to 2011a, gfortran thereafter).
+ - The MATLAB environment variable must point to your system matlab directory.
+   From within Matlab, you can check where the environment variable points to
+   by typing
+       MATLAB
+   If it is not pointing to the right location, then
+   you can reset it by typing
+       MATLAB = matlabpath
+   where matlabpath is replaced by the path where Matlab is installed, for
+   example,
+       MATLAB = '/usr/local/matlab/'
+
+-----------------------------------------------------------------
+2. Directory structure
+-----------------------------------------------------------------
+
+The directory matlab obtained after extracting the archive contains all the
+codes necessary for the installation and use of the MATLAB interface for
+HSL_MA97.
+
+The files in the matlab directory are:
+
+INSTALL                 Installation instructions
+README                  Instructions for using the interface
+hsl_ma97_install.m      Matlab code for installing HSL_MA97 and interface
+hsl_ma97_test.m         Simple Matlab test example
+hsl_ma97_full_test.m    Matlab test code aimed at fully exercising the interface
+hsl_ma97_backslash.m    Matlab code for interface
+hsl_ma97_destroy.m      Matlab code for interface
+hsl_ma97_expert.m       Matlab code for interface
+hsl_ma97_factor.m       Matlab code for interface
+hsl_ma97_multiply.m     Matlab code for interface
+hsl_ma97_solve.m        Matlab code for interface
+hsl_matlab.F90          Generic Fortran code for HSL Matlab interfaces
+hsl_ma97_expert.f90     Fortran code for Matlab interface
+common90.g95.f90        Alternate version of ../src/common90.f90 with workaround
+                        for g95 bug.
+hsl_ma97d.g95.f90       Alternate version of ../src/hsl_ma97d.f90 to workaround
+                        a g95 bug.
+hsl_ma97z.g95.f90       Alternate version of ../src/hsl_ma97z.f90 to workaround
+                        a g95 bug.
+
+-----------------------------------------------------------------
+3. Installation of hsl_ma97 and its Matlab interface
+-----------------------------------------------------------------
+
+- Extract the hsl_ma97 archive into the desired directory.
+- Start matlab
+- Navigate to the directory containing the extracted files
+- To install the interface, use the function hsl_ma97_install as follows.
+
+    hsl_ma97_install() installs HSL_MA97 and its Matlab Interface. It is
+       assumed that the BLAS and LAPACK routines provided by MATLAB
+       are used, and mex is configured to use your preferred compiler.
+       The test example is not run.
+
+    hsl_ma97_install(TEST) installs HSL_MA97 and its Matlab Interface and
+       optionally runs the test example. It is assumed that the BLAS and LAPACK
+       routines provided with the interface are used, and mex is configured to
+       use your preferred compiler.
+       If TEST <= 0, the test example is not run;
+       if TEST > 0, the test example is run and the user can compare the output
+       with that of the file OUT/install.output. Note that there may be very
+       small differences because of the arithmetic differing on different
+       computers.
+
+    hsl_ma97_install(TEST,LIBS) installs HSL_MA97 and its Matlab Interface
+       and optionally runs the test example. It is assumed that mex is
+       configured to use your preferred compiler.
+       If LIBS has the value 'matlab' this is equivalent to the
+         setting LIBS='-lmwlapack -lmwblas -lgomp'. In addition it will compile
+         the file nometis.f to signal that metis is not available.
+         Use of this option on a 64-bit platform will force use of 64-bit
+         default integers and may impede the performance of the HSL code. 
+       Otherwise LIBS should be set to specify which BLAS and MeTiS to link
+         against, any OpenMP library required (normally -lgomp) and may
+         optionally specify the location of other libraries
+         (eg libf95.a libgcc.a if they are not on a default search path).
+         Typically this will take the form of
+         LIBS='-L/path/to/blas -lblas -L/path/to/metis -lmetis -lgomp'.
+
+    hsl_ma97_install(TEST,LIBS,MEXFLAGS) installs HSL_MA97 and its Matlab
+       Interface and optionally runs the test example. The contents of the
+       variable MEXFLAGS is passed to mex as follows.
+         mex $(MEXFLAGS) -c file.F90
+         mex $(MEXFLAGS) $(LIBS) -output foo.mex file.F90
+      If MEXFLAGS is not supplied it assumes the default value of
+        '-largeArrayDims' on a 64-bit platform and is empty on a 32-bit
+        platform.
+      If MEXFLAGS is supplied and BLAS='matlab' on a 64-bit machine, the user
+        must ensure that the relevant flag to force 64-bit default integers is
+        passed to the compiler by explicitly setting FFLAGS='-i8 -fPIC' (g95) or
+        '-fdefault-real-8 -fPIC' (gfortran). (The -fPIC is needed as the mex
+        default value of FFLAGS uses -fPIC to create a shared library). Further,
+        if OpenMP is desired (highly recommended) FFLAGS should include the
+        relevant compiler flag ('-fopenmp' for gfortran).
+
+-----------------------------------------------------------------
+4. Instructions for best performance
+-----------------------------------------------------------------
+For best performance we recommend that:
+   * 32-bit integer BLAS are provided, allowing HSL_MA97 to work internally
+     with 32-bit integers.
+   * Metis ordering is provided. You will need to ensure that the metis library
+     is compiled with the -fPIC option and that the older v4.0 is used, not the
+     most recent v5.0. The older version gives better performance than the newer
+     on most problems.
+   * OpenMP is enabled. This will require an OpenMP 3.0 compliant compiler, such
+     as gfortran 4.4, and hence a relatively recent version of Matlab.
+
+On our testing machine, the following options are used to compile with
+gfortran, OpenMP, MKL BLAS and MeTiS:
+
+% Note: we need to repeat the mkl libraries twice to ensure all symbols are
+% resolved correctly as mex doesn't easily allow use of -Wl,--start-group
+% Further, recent versions of MKL require the additional -ldl library flag
+% For OpenMP we need to specify -fopenmp to the compiler and link against
+% the compiler's OpenMP library -lgomp.
+MKLPATH = '/opt/intel/composerxe/mkl/lib/intel64'
+MKLLIB = [MKLPATH '/libmkl_gf_lp64.a ' MKLPATH '/libmkl_sequential.a ' MKLPATH '/libmkl_core.a ']
+METIS = '-L/usr/local/metis-4.0-shared -lmetis'
+MEXFLAGS = '-largeArrayDims FFLAGS="-fopenmp \$FFLAGS"'
+hsl_ma97_install(1,[MKLLIB MKLLIB METIS ' -ldl -lgomp'],MEXFLAGS)
+
+These may require adaption if your libraries reside in different locations.

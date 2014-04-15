@@ -1,0 +1,90 @@
+10:22:02 **** Build of configuration Debug for project BLAS_Test ****
+make all 
+Building file: ../Cexample.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Cexample.d" -MT"Cexample.d" -o "Cexample.o" "../Cexample.c"
+../Cexample.c: In function 'main':
+../Cexample.c:25:2: warning: implicit declaration of function 'BLAS_uscr_end' [-Wimplicit-function-declaration]
+  BLAS_uscr_end(A);
+  ^
+Finished building: ../Cexample.c
+ 
+Building file: ../blas_malloc.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"blas_malloc.d" -MT"blas_malloc.d" -o "blas_malloc.o" "../blas_malloc.c"
+Finished building: ../blas_malloc.c
+ 
+Building file: ../blas_sparse_L1_double.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"blas_sparse_L1_double.d" -MT"blas_sparse_L1_double.d" -o "blas_sparse_L1_double.o" "../blas_sparse_L1_double.c"
+Finished building: ../blas_sparse_L1_double.c
+ 
+Building file: ../blas_sparse_L23_double.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"blas_sparse_L23_double.d" -MT"blas_sparse_L23_double.d" -o "blas_sparse_L23_double.o" "../blas_sparse_L23_double.c"
+Finished building: ../blas_sparse_L23_double.c
+ 
+Building file: ../blas_sparse_handle.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"blas_sparse_handle.d" -MT"blas_sparse_handle.d" -o "blas_sparse_handle.o" "../blas_sparse_handle.c"
+Finished building: ../blas_sparse_handle.c
+ 
+Building file: ../csr_double.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"csr_double.d" -MT"csr_double.d" -o "csr_double.o" "../csr_double.c"
+Finished building: ../csr_double.c
+ 
+Building file: ../microblas_double.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"microblas_double.d" -MT"microblas_double.d" -o "microblas_double.o" "../microblas_double.c"
+Finished building: ../microblas_double.c
+ 
+Building file: ../spblasi_matrix.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"spblasi_matrix.d" -MT"spblasi_matrix.d" -o "spblasi_matrix.o" "../spblasi_matrix.c"
+Finished building: ../spblasi_matrix.c
+ 
+Building file: ../spblasi_matrix_double.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"spblasi_matrix_double.d" -MT"spblasi_matrix_double.d" -o "spblasi_matrix_double.o" "../spblasi_matrix_double.c"
+Finished building: ../spblasi_matrix_double.c
+ 
+Building file: ../spblasi_matrix_prop.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"spblasi_matrix_prop.d" -MT"spblasi_matrix_prop.d" -o "spblasi_matrix_prop.o" "../spblasi_matrix_prop.c"
+Finished building: ../spblasi_matrix_prop.c
+ 
+Building file: ../spblasi_table.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"spblasi_table.d" -MT"spblasi_table.d" -o "spblasi_table.o" "../spblasi_table.c"
+Finished building: ../spblasi_table.c
+ 
+Building file: ../spvec_double.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"spvec_double.d" -MT"spvec_double.d" -o "spvec_double.o" "../spvec_double.c"
+Finished building: ../spvec_double.c
+ 
+Building file: ../table.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"table.d" -MT"table.d" -o "table.o" "../table.c"
+../table.c: In function 'Table_dump':
+../table.c:187:20: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  printf("T: %d\n", (int) T);
+                    ^
+../table.c:197:30: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    printf("[%d]   %d \n", i, (int) T->t_[i]);
+                              ^
+Finished building: ../table.c
+ 
+Building target: BLAS_Test.exe
+Invoking: Cygwin C Linker
+gcc  -o "BLAS_Test.exe"  ./Cexample.o ./blas_malloc.o ./blas_sparse_L1_double.o ./blas_sparse_L23_double.o ./blas_sparse_handle.o ./csr_double.o ./microblas_double.o ./spblasi_matrix.o ./spblasi_matrix_double.o ./spblasi_matrix_prop.o ./spblasi_table.o ./spvec_double.o ./table.o   
+./Cexample.o: In function `main':
+/cygdrive/c/Users/cmason01/Documents/GitHub/GRWorkspace/BLAS_Test/Debug/../Cexample.c:25: undefined reference to `BLAS_uscr_end'
+/cygdrive/c/Users/cmason01/Documents/GitHub/GRWorkspace/BLAS_Test/Debug/../Cexample.c:25:(.text+0x1c3): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `BLAS_uscr_end'
+collect2: error: ld returned 1 exit status
+makefile:29: recipe for target 'BLAS_Test.exe' failed
+make: *** [BLAS_Test.exe] Error 1
+
+10:22:04 Build Finished (took 1s.918ms)
+

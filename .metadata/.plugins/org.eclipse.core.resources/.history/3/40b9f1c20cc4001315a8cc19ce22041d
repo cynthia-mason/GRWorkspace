@@ -1,0 +1,7 @@
+#include "math.h"
+#include "blas_sparse.h"
+
+void Function_PCG_WoodScratch(const int numRowA, const int numColA, const int numNZA, double[] A, double[] b, double[] c, double gamma, double[] x, int *NumVar, int *IPMit, double *CondNum, int *PCGit)
+{
+
+}

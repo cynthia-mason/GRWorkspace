@@ -1,0 +1,8 @@
+
+ Warning from ma97_analyse. Warning flag =   4
+ one or more diagonal entries is missing
+
+ The computed solution is:
+  1.0000000000E+00  2.0000000000E+00  2.0000000000E+00
+  1.0000002384E+00  1.0000000000E+00
+piv_order    3    4    2    5    1

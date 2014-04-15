@@ -1,0 +1,13 @@
+
+ Warning from ma97_analyse_coord. Warning flag =   4
+ one or more diagonal entries is missing
+
+ The computed solution is:
+  1.0000E+00  2.0000E+00  3.0000E+00
+  4.0000E+00  5.0000E+00
+ -3.0000E+00  1.0000E+00 -4.0000E+00
+  1.0000E+00 -5.0000E+00
+
+ Next solution is:
+  4.0000E+00  5.0000E+00  9.0000E+00
+  5.0000E-01  4.0000E+00

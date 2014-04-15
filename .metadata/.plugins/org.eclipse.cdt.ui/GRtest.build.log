@@ -1,0 +1,6 @@
+15:42:41 **** Incremental Build of configuration Debug for project GRtest ****
+make all 
+make: Nothing to be done for 'all'.
+
+15:42:41 Build Finished (took 68ms)
+

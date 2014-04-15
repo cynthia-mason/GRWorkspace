@@ -1,0 +1,50 @@
+14:49:23 **** Incremental Build of configuration Debug for project GRtest2 ****
+make all 
+Building file: ../testRun_Function_PCG_Wood_clean_codegen.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testRun_Function_PCG_Wood_clean_codegen.d" -MT"testRun_Function_PCG_Wood_clean_codegen.d" -o "testRun_Function_PCG_Wood_clean_codegen.o" "../testRun_Function_PCG_Wood_clean_codegen.c"
+cygwin warning:
+  MS-DOS style path detected: C:\Users\cmason01\Documents\GitHub\GRWorkspace\GRtest2\Debug
+  Preferred POSIX equivalent is: /cygdrive/c/Users/cmason01/Documents/GitHub/GRWorkspace/GRtest2/Debug
+  CYGWIN environment variable option "nodosfilewarning" turns off this warning.
+  Consult the user's guide for more details about POSIX paths:
+    http://cygwin.com/cygwin-ug-net/using.html#using-pathnames
+../testRun_Function_PCG_Wood_clean_codegen.c: In function 'main':
+../testRun_Function_PCG_Wood_clean_codegen.c:26:3: warning: passing argument 6 of 'Function_PCG_Wood_clean_codegen2' from incompatible pointer type [enabled by default]
+   Function_PCG_Wood_clean_codegen2(A,b,c,b_gamma,x,&NumVar, &IPMit, &CondNum, &PCGit);
+   ^
+In file included from ../testRun_Function_PCG_Wood_clean_codegen.c:6:0:
+../Function_PCG_Wood_clean_codegen2.h:34:13: note: expected 'real_T *' but argument is of type 'real_T **'
+ extern void Function_PCG_Wood_clean_codegen2(const real_T A[170], const real_T b[17], const real_T c[10], real_T b_gamma, real_T x[10], real_T *NumVar, real_T *IPMit, real_T *CondNum, real_T *PCGit);
+             ^
+../testRun_Function_PCG_Wood_clean_codegen.c:26:3: warning: passing argument 7 of 'Function_PCG_Wood_clean_codegen2' from incompatible pointer type [enabled by default]
+   Function_PCG_Wood_clean_codegen2(A,b,c,b_gamma,x,&NumVar, &IPMit, &CondNum, &PCGit);
+   ^
+In file included from ../testRun_Function_PCG_Wood_clean_codegen.c:6:0:
+../Function_PCG_Wood_clean_codegen2.h:34:13: note: expected 'real_T *' but argument is of type 'real_T **'
+ extern void Function_PCG_Wood_clean_codegen2(const real_T A[170], const real_T b[17], const real_T c[10], real_T b_gamma, real_T x[10], real_T *NumVar, real_T *IPMit, real_T *CondNum, real_T *PCGit);
+             ^
+../testRun_Function_PCG_Wood_clean_codegen.c:26:3: warning: passing argument 8 of 'Function_PCG_Wood_clean_codegen2' from incompatible pointer type [enabled by default]
+   Function_PCG_Wood_clean_codegen2(A,b,c,b_gamma,x,&NumVar, &IPMit, &CondNum, &PCGit);
+   ^
+In file included from ../testRun_Function_PCG_Wood_clean_codegen.c:6:0:
+../Function_PCG_Wood_clean_codegen2.h:34:13: note: expected 'real_T *' but argument is of type 'real_T **'
+ extern void Function_PCG_Wood_clean_codegen2(const real_T A[170], const real_T b[17], const real_T c[10], real_T b_gamma, real_T x[10], real_T *NumVar, real_T *IPMit, real_T *CondNum, real_T *PCGit);
+             ^
+../testRun_Function_PCG_Wood_clean_codegen.c:26:3: warning: passing argument 9 of 'Function_PCG_Wood_clean_codegen2' from incompatible pointer type [enabled by default]
+   Function_PCG_Wood_clean_codegen2(A,b,c,b_gamma,x,&NumVar, &IPMit, &CondNum, &PCGit);
+   ^
+In file included from ../testRun_Function_PCG_Wood_clean_codegen.c:6:0:
+../Function_PCG_Wood_clean_codegen2.h:34:13: note: expected 'real_T *' but argument is of type 'real_T **'
+ extern void Function_PCG_Wood_clean_codegen2(const real_T A[170], const real_T b[17], const real_T c[10], real_T b_gamma, real_T x[10], real_T *NumVar, real_T *IPMit, real_T *CondNum, real_T *PCGit);
+             ^
+Finished building: ../testRun_Function_PCG_Wood_clean_codegen.c
+ 
+Building target: GRtest2.exe
+Invoking: Cygwin C Linker
+gcc  -o "GRtest2.exe"  ./Function_PCG_Wood_clean_codegen2.o ./Function_PCG_Wood_clean_codegen2_emxutil.o ./Function_PCG_Wood_clean_codegen2_initialize.o ./Function_PCG_Wood_clean_codegen2_terminate.o ./abs.o ./colon.o ./cond.o ./diag.o ./eye.o ./mrdivide.o ./rdivide.o ./rtGetInf.o ./rtGetNaN.o ./rt_nonfinite.o ./sum.o ./testRun_Function_PCG_Wood_clean_codegen.o   -lm
+Finished building target: GRtest2.exe
+ 
+
+14:49:24 Build Finished (took 468ms)
+

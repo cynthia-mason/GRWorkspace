@@ -1,0 +1,45 @@
+
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "rt_nonfinite.h"
+#include "Function_PCG_Wood_clean_codegen.h"
+#include "Function_PCG_Wood_clean_codegen_emxutil.h"
+#include "Function_PCG_Wood_clean_codegen_types.h"
+#include "Function_PCG_Wood_clean_codegen_terminate.h"
+#include "Function_PCG_Wood_clean_codegen_initialize.h"
+
+  //testRun_Function_PCG_Wood_clean_codegen
+  int main(){
+  
+	  const real_T A[170] = {1,0,0,1,0,0,0,-1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,-1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,-1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,-1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,-1};
+
+  const int numRowA;
+  const int numColA;
+  const int numNZA;
+  double[] Aval;
+  int[] A_indx;
+  int[] A_jndx;
+  double b[17] = {1,1,1,2,2,1,1,0,0,0,0,0,0,0,0,0,0};
+  double c[10] ={10,8,6,4,5,4,13,16,7,8};
+  double gamma = 0.9;
+  double[] x;
+  int NumVar;
+  int IPMit;
+  int CondNum;
+  int PCGit;
+
+
+  int i;
+  
+  Function_PCG_WoodScratch(numRowA, numColA, numNZA, Aval, A_indx, A_jndx, gamma, x, NumVar, IPMit, CondNum, PCGit)
+  //Function_PCG_WoodScratch(const int numRowA, const int numColA, const int numNZA, double[] Aval, int[] A_indx, int[] A_jndx, double[] b, double[] c, double gamma, double[] x, int *NumVar, int *IPMit, double *CondNum, int *PCGit)
+
+  printf("x = ");
+  for(i=0;i<10;i++){
+      printf("element %d = %f\n", i+1,x[i]);
+  }
+
+  printf("This worked!\n\n");
+	return 0;
+	}

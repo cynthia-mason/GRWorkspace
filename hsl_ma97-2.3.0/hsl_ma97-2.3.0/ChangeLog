@@ -1,0 +1,90 @@
+2014-02-12  Jonathan Hogg
+Version 2.3.0
+Performance improvements:
+   * MATLAB interface now compiles with OpenMP enabled by default
+Bug fixes:
+   * Fix integer overflow issues that occur for some large problems
+   * Create work around for ifort bug that affects solve
+   * Create work around for ifort bug with OpenMP and vars named 'alloc'
+   * Fix bug in integer kinds for matlab interface with 32-bit DI
+
+2013-03-21  Jonathan Hogg
+Version 2.2.0
+Bug fixes:
+   * Fix memory leak that occurs when a large matrix is found not to be +ive
+     definite.
+   * Fix a bug in the matlab install script that looks for no longer existant
+     ddeps.f and zdeps.f files.
+   * Correct upper limit for control%u to 0.5.
+   * Add some explicit type casting to remove some warnings with g95.
+     NB: g95 still fails to compile the code due to a compiler bug.
+
+2012-12-20  Jonathan Hogg
+Version 2.1.0
+Several New Features + Bug Fixes + MATLAB interface update
+   * Add routine ma97_solve_fredholm() to support Fredholm alternative for
+     singular matrices.
+   * Add routine ma97_lmultiply() to enable users to multiply by L and L^T.
+   * Add routine ma97_sparse_fwd_solve() to enable efficient solution of
+     Lx = b when b is sparse.
+   * Add support for MC30 scaling.
+   * Modify MATLAB interface to support above operations, also adding support
+     for new scaling and matching operations from previous release.
+   * Improve control%ordering=5 heuristic (differentiate it from ordering=6)
+   * Bug fixes:
+      * Propogate stats structure down to ldsrk() routine allowing correct
+        checking for memory allocation error.
+      * Fix error reporting bug where info%st != 0 but info%flag was 0.
+      * Fix MATLAB install script to support major versions higher than 7.
+      * Fix bug with control%ordering=6
+
+2012-06-20  Jonathan Hogg
+Version 2.0.0
+   * Add support for matching-based orderings. This includes adding additional
+     arguments (optional in Fortran, mandatory but optionally NULL in C) to
+     ma97_analyse() and ma97_analyse_coord().
+   * Change default behaviour of ordering heuristic to give better parallel
+     performance for large and sparse problems. Original behaviour still
+     available as control%ordering=6.
+   * Improved handling of structually singular matrices when using MC64
+     scaling option.
+   * A structual singularity previously reported under warning +6 is now
+     reported under warning +7 for reasons of consistency.
+   * MC64 scaling now uses HSL_MC64. This has altered the permutation of
+     the matrix that is used by the algorithm, which may alter the runtime
+     significantly for some problems (either faster or slower). The same
+     scaling should still be found for structually non-singular problems.
+   * Fix bug with mc77 scaling.
+   * Fix bug involving 64-bit addressing of large supernodes.
+   * Fix memory leak when performing repeated factorizations.
+   * Fix a bug involving zero pivots in small supernodes.
+   * Fix a performance issue with node-level parallelism.
+   * Fix a bug due to memory allocation failure that only occurs in parallel.
+
+2012-01-31  Jonathan Hogg
+Version 1.2.0
+   * Fix incorrect calculation of info%num_two during factorization in real
+     codes
+
+2012-01-09  Jonathan Hogg
+Version 1.1.0
+   * Update documentation to cover:
+      * control%factor_min
+      * control%solve_mf
+      * control%solve_blas3
+      * control%solve_min
+   * Add above controls to C interface.
+   * Change control%solve_min from INTEGER to INTEGER(long)
+
+2011-12-20  Jonathan Hogg
+Version 1.0.0
+First public release; fix bug in MC77 pivoting.
+
+2011-11-23  Jonathan Hogg
+Version 1.0.0-pre2
+Significantly improved memory managment plus some moderate performance
+enhancements.
+
+2011-11-01  Jonathan Hogg and Jennifer Scott
+Version 1.0.0-pre1
+Initial version of code

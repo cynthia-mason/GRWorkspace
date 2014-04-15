@@ -1,0 +1,17 @@
+
+ Warning from ma97_analyse. Warning flag =   4
+ one or more diagonal entries is missing
+
+ Warning from ma97_factor. Warning flag =   7
+ Matrix found to be singular
+Right-hand side 0 is consistent with solution:
+ 0.250000 0.500000 0.000000 1.562500
+Right-hand side 1 inconsistent. Ax=0, x^Tb/=0 given by:
+ 0.000000 0.000000 1.000000 -0.750000
+S^{-1}PLX_0 =  0.450000 0.500000 1.171875 1.562500
+S^{-1}PLX_1 =  0.450000 0.500000 1.171875 1.562500
+Sparse solution has entries:
+1 0.500000
+2 0.078125
+3 1.562500
+0 0.050000

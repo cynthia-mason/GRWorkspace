@@ -1,0 +1,8 @@
+#include "math.h"
+
+void Function_PCG_Wood_clean_codegen(int[] A[170], const real_T b[17],
+  const real_T c[10], real_T b_gamma, real_T x[10], real_T *NumVar, real_T
+  *IPMit, real_T *CondNum, real_T *PCGit)
+{
+
+}
