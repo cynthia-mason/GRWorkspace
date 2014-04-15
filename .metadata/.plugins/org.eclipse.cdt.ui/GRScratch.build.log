@@ -1,10 +1,6 @@
-14:49:53 **** Incremental Build of configuration Debug for project GRScratch ****
+15:13:37 **** Incremental Build of configuration Debug for project GRScratch ****
 make all 
-Building target: GRScratch.exe
-Invoking: Cygwin C Linker
-gcc  -o "GRScratch.exe"  ./Function_PCG_WoodScratch.o ./blas_malloc.o ./blas_sparse_L1_double.o ./blas_sparse_L23_double.o ./blas_sparse_handle.o ./csr_double.o ./microblas_double.o ./spblasi_matrix.o ./spblasi_matrix_double.o ./spblasi_matrix_prop.o ./spblasi_table.o ./spvec_double.o ./table.o ./testRun_Function_PCG_WoodScratch.o   
-Finished building target: GRScratch.exe
- 
+make: Nothing to be done for 'all'.
 
-14:49:53 Build Finished (took 271ms)
+15:13:37 Build Finished (took 69ms)
 

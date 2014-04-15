@@ -1,6 +1,5 @@
 #include "math.h"
 #include "blas_sparse.h"
-#include "stdio.h"
 
 void Function_PCG_WoodScratch(
 		const int numRowA, const int numColA,const int numNZA,
@@ -40,12 +39,6 @@ void Function_PCG_WoodScratch(
 		for (i=0;i<N;i++)
 		printf("%f, ",y[i]);*/
 
-	/*	INITIALIZE	*/
-	blas_sparse_matrix Minv;
-	int ind;
-	int row[numColA];
-
-	//CONSTRUCT A
 	blas_sparse_matrix A;
 	int i;
 
@@ -55,25 +48,5 @@ void Function_PCG_WoodScratch(
 	/*  Step 2: Insert entries  */
 	for (i=0;i<numNZA;i++)
 		BLAS_duscr_insert_entry(A,A_val[i],A_indx[i],A_jndx[i]);
-
-	/*  Step 3: Complete construction of sparse matrix  */
-	BLAS_duscr_end(A);
-
-	i=0;
-	ind=0;
-	while(i<numColA){
-		if(A_indx[ind]==0){
-			row[i] = A_val[ind];
-			i++;
-			printf("row[%d] = %d \n",i,row[i]);
-		}
-		ind++;
-	}
-
-//	/*  Step 4: Compute matrix vector product y=A*x  */
-//	BLAS_dusmv(blas_no_trans,alpha,A,x,1,y,1);
-//
-//	/*  Step 5: release matrix handle  */
-//	BLAS_usds(A);
 
 }

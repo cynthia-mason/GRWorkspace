@@ -1,6 +1,5 @@
 #include "math.h"
 #include "blas_sparse.h"
-#include "stdio.h"
 
 void Function_PCG_WoodScratch(
 		const int numRowA, const int numColA,const int numNZA,
@@ -65,7 +64,6 @@ void Function_PCG_WoodScratch(
 		if(A_indx[ind]==0){
 			row[i] = A_val[ind];
 			i++;
-			printf("row[%d] = %d \n",i,row[i]);
 		}
 		ind++;
 	}

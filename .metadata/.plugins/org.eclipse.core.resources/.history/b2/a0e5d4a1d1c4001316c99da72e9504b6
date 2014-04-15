@@ -65,7 +65,7 @@ void Function_PCG_WoodScratch(
 		if(A_indx[ind]==0){
 			row[i] = A_val[ind];
 			i++;
-			printf("row[%d] = %d \n",i,row[i]);
+			printf("row[%d] = %f",i,row[i]);
 		}
 		ind++;
 	}

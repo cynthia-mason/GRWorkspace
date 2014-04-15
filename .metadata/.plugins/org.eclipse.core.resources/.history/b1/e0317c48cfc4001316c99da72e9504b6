@@ -9,7 +9,7 @@ int main(){
 	int indx[] = {0,1,1,2,3,3};
 	int jndx[] = {0,1,3,2,0,3};
 	double x[] = {1.0,1.0,1.0,1.0};
-	double y[] = {0.0,0.0,0.0,0.0}; // this is the solution
+	double y[] = {0.0,0.0,0.0,0.0};
 
 	blas_sparse_matrix A;
 	int i;
