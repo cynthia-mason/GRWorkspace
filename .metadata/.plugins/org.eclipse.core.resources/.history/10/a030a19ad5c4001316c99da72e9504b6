@@ -1,0 +1,90 @@
+#include "math.h"
+#include "blas_sparse.h"
+#include "stdio.h"
+
+#define BASE = 1;
+void Function_PCG_WoodScratch(
+		const int numRowA, const int numColA,const int numNZA,
+		double A_val[29], int A_indx[29], int A_jndx[29],
+		double b[17], double c[10], double gamma,
+		double x[10], int *NumVar, int *IPMit, double *CondNum, int *PCGit){
+
+/*		const int N = 4;
+		const int nx = 6;
+		double val[] = {1.1,2.2,2.4,3.3,4.1,4.4};
+		int indx[] = {0,1,1,2,3,3};
+		int jndx[] = {0,1,3,2,0,3};
+		double x[] = {1.0,1.0,1.0,1.0};
+		double y[] = {0.0,0.0,0.0,0.0}; // this is the solution
+
+		blas_sparse_matrix A;
+		int i;
+		double alpha = 1.0;
+
+		// Step 1: Create Sparse BLAS Handle
+		A = BLAS_duscr_begin(N,N);
+
+		//Step 2: Insert Entries
+		for (i=0;i<nx;i++)
+			BLAS_duscr_insert_entry(A,val[i],indx[i],jndx[i]);
+
+		//Step 3: Complete construction of sparse matrix
+		BLAS_duscr_end(A);
+
+		//Step 4: Compute matrix vector product y=A*x
+		BLAS_dusmv(blas_no_trans,alpha,A,x,1,y,1);
+
+		//Step 5: release matrix handle
+		BLAS_usds(A);
+
+		printf("The solution is:\n");
+		for (i=0;i<N;i++)
+		printf("%f, ",y[i]);*/
+
+	/*	INITIALIZE	*/
+	blas_sparse_matrix Minv;
+	int ind;
+	double row[numColA];
+
+	//CONSTRUCT A
+	blas_sparse_matrix A;
+	int i;
+
+	/*  Step 1: Create Spares BLAS Handle  */
+	A=BLAS_duscr_begin(numRowA,numColA);
+
+	/*  Step 2: Insert entries  */
+	for (i=0;i<numNZA;i++){
+		BLAS_duscr_insert_entry(A,A_val[i],A_indx[i],A_jndx[i]);
+		//printf("At i = %d, and j = %d ==> A[%d] = %f \n",A_indx[i], A_jndx[i], i,A_val[i]);
+	}
+
+	/*  Step 3: Complete construction of sparse matrix  */
+	BLAS_duscr_end(A);
+
+
+	for(i=0;i<numColA;i++)
+		row[i]=0.0;
+
+	printf("HI\n\n");
+	i=0;
+	ind=0;
+
+	for(i=0;i<numNZA;i++){
+		printf("A_indx[%d] = %d and A_jndx[%d] = %d ==> A_val[%d] = %f\n",i,A_indx[i],i,A_jndx[i],i,A_val[i]);
+		if(A_indx[i]==0+BASE){
+			row[A_jndx[i]] = A_val[i];
+			printf("A_val[%d] = %f\n",i,A_val[i]);
+		}
+	}
+
+	for(i=0;i<numColA;i++)
+		printf("row[%d] = %f \n",i,row[i]);
+
+//	/*  Step 4: Compute matrix vector product y=A*x  */
+//	BLAS_dusmv(blas_no_trans,alpha,A,x,1,y,1);
+//
+//	/*  Step 5: release matrix handle  */
+//	BLAS_usds(A);
+
+}

@@ -1,6 +1,22 @@
-15:13:37 **** Incremental Build of configuration Debug for project GRScratch ****
+15:51:52 **** Incremental Build of configuration Debug for project GRScratch ****
 make all 
-make: Nothing to be done for 'all'.
+Building file: ../Function_PCG_WoodScratch.c
+Invoking: Cygwin C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Function_PCG_WoodScratch.d" -MT"Function_PCG_WoodScratch.d" -o "Function_PCG_WoodScratch.o" "../Function_PCG_WoodScratch.c"
+../Function_PCG_WoodScratch.c: In function 'Function_PCG_WoodScratch':
+../Function_PCG_WoodScratch.c:47:9: warning: variable 'row' set but not used [-Wunused-but-set-variable]
+  double row[numColA];
+         ^
+../Function_PCG_WoodScratch.c:45:21: warning: unused variable 'Minv' [-Wunused-variable]
+  blas_sparse_matrix Minv;
+                     ^
+Finished building: ../Function_PCG_WoodScratch.c
+ 
+Building target: GRScratch.exe
+Invoking: Cygwin C Linker
+gcc  -o "GRScratch.exe"  ./Function_PCG_WoodScratch.o ./blas_malloc.o ./blas_sparse_L1_double.o ./blas_sparse_L23_double.o ./blas_sparse_handle.o ./csr_double.o ./microblas_double.o ./spblasi_matrix.o ./spblasi_matrix_double.o ./spblasi_matrix_prop.o ./spblasi_table.o ./spvec_double.o ./table.o ./testRun_Function_PCG_WoodScratch.o   
+Finished building target: GRScratch.exe
+ 
 
-15:13:37 Build Finished (took 69ms)
+15:51:52 Build Finished (took 424ms)
 
