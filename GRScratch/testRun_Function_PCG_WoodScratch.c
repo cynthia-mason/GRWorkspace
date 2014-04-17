@@ -23,10 +23,16 @@
 
   int i;
   
+  //Allocate an int pointee
+  NumVar = malloc(sizeof(int));
+  IPMit = malloc(sizeof(int));
+  CondNum = malloc(sizeof(int));
+  PCGit = malloc(sizeof(int));
+
   Function_PCG_WoodScratch(numRowA, numColA, numNZA, A_val, A_indx, A_jndx, b, c, gamma, x, NumVar, IPMit, CondNum, PCGit);
   //Function_PCG_WoodScratch(const int numRowA, const int numColA, const int numNZA, double[] Aval, int[] A_indx, int[] A_jndx, double[] b, double[] c, double gamma, double[] x, int *NumVar, int *IPMit, double *CondNum, int *PCGit)
 
-  printf("x = ");
+  printf("\n\n x = \n");
   for(i=0;i<10;i++){
       printf("element %d = %f\n", i+1,x[i]);
   }
